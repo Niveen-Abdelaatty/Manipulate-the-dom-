@@ -73,14 +73,23 @@ document.addEventListener('DOMContentLoaded', function (event) {
   quoteTitleBtn.addEventListener('click', randomQuote);
 
   // Part 9
-  const updatedMainParagraphs = document.querySelectorAll('.blog-post');
+  function togglePostBg(post)
+  {
+    post.classList.toggle('purple')
+    post.classList.toggle('red')
+  }
+  let blogPosts = document.querySelectorAll('.blog-post')
+  console.log(blogPosts)
+  blogPosts.forEach(post =>
+  {
+    post.addEventListener('mouseleave', (e) =>
+    {
+      togglePostBg(e.target)
+    })
+    post.addEventListener('mouseenter', (e) =>
+    {
+      togglePostBg(e.target)
+    })
+  }) 
 
-  updatedMainParagraphs.forEach((element) => {
-    element.addEventListener('mouseout', function(){
-      element.classList.toggle('purple');
-    });
-    element.addEventListener('mouseenter', function(){
-      element.classList.toggle('red');
-    });
-  });
 });
